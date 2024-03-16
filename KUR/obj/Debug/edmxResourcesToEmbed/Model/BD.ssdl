@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище BDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ClientTable">
+    <Key>
+      <PropertyRef Name="id_client" />
+    </Key>
+    <Property Name="id_client" Type="int" Nullable="false" />
+    <Property Name="name_client" Type="nvarchar" MaxLength="50" />
+    <Property Name="surname_client" Type="nvarchar" MaxLength="50" />
+    <Property Name="telephone_client" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderTable">
+    <Key>
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_order" Type="int" Nullable="false" />
+    <Property Name="id_product_payment_status" Type="int" />
+    <Property Name="id_client" Type="int" />
+    <Property Name="id_product_status" Type="int" />
+    <Property Name="id_product" Type="int" />
+    <Property Name="id_point" Type="int" />
+    <Property Name="product_units" Type="date" />
+    <Property Name="delivery_date" Type="date" />
+    <Property Name="shelf_life" Type="int" />
+  </EntityType>
+  <EntityType Name="PointTable">
+    <Key>
+      <PropertyRef Name="id_point" />
+    </Key>
+    <Property Name="id_point" Type="int" Nullable="false" />
+    <Property Name="address_point" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductPaymentStatusTable">
+    <Key>
+      <PropertyRef Name="id_product_payment_status" />
+    </Key>
+    <Property Name="id_product_payment_status" Type="int" Nullable="false" />
+    <Property Name="name_product_payment_status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductStatusTable">
+    <Key>
+      <PropertyRef Name="id_product_status" />
+    </Key>
+    <Property Name="id_product_status" Type="int" Nullable="false" />
+    <Property Name="name_product_status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductTable">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_product" Type="int" Nullable="false" />
+    <Property Name="id_type_product" Type="int" />
+    <Property Name="id_warehouse" Type="int" />
+    <Property Name="id_supplier" Type="int" />
+    <Property Name="name_product" Type="nvarchar" MaxLength="50" />
+    <Property Name="price_product" Type="int" />
+    <Property Name="weight_product" Type="int" />
+  </EntityType>
+  <EntityType Name="SupplierTable">
+    <Key>
+      <PropertyRef Name="id_supplier" />
+    </Key>
+    <Property Name="id_supplier" Type="int" Nullable="false" />
+    <Property Name="name_supplier" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypeProductTable">
+    <Key>
+      <PropertyRef Name="id_type_product" />
+    </Key>
+    <Property Name="id_type_product" Type="int" Nullable="false" />
+    <Property Name="name_type_product" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WarehouseTable">
+    <Key>
+      <PropertyRef Name="id_warehouse" />
+    </Key>
+    <Property Name="id_warehouse" Type="int" Nullable="false" />
+    <Property Name="name_warehouse" Type="nvarchar" MaxLength="50" />
+    <Property Name="address_warehouse" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__OrderTabl__id_cl__3A81B327">
+    <End Role="ClientTable" Type="Self.ClientTable" Multiplicity="0..1" />
+    <End Role="OrderTable" Type="Self.OrderTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientTable">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="OrderTable">
+        <PropertyRef Name="id_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderTabl__id_po__3D5E1FD2">
+    <End Role="PointTable" Type="Self.PointTable" Multiplicity="0..1" />
+    <End Role="OrderTable" Type="Self.OrderTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointTable">
+        <PropertyRef Name="id_point" />
+      </Principal>
+      <Dependent Role="OrderTable">
+        <PropertyRef Name="id_point" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderTabl__id_pr__398D8EEE">
+    <End Role="ProductPaymentStatusTable" Type="Self.ProductPaymentStatusTable" Multiplicity="0..1" />
+    <End Role="OrderTable" Type="Self.OrderTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductPaymentStatusTable">
+        <PropertyRef Name="id_product_payment_status" />
+      </Principal>
+      <Dependent Role="OrderTable">
+        <PropertyRef Name="id_product_payment_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderTabl__id_pr__3B75D760">
+    <End Role="ProductStatusTable" Type="Self.ProductStatusTable" Multiplicity="0..1" />
+    <End Role="OrderTable" Type="Self.OrderTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductStatusTable">
+        <PropertyRef Name="id_product_status" />
+      </Principal>
+      <Dependent Role="OrderTable">
+        <PropertyRef Name="id_product_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderTabl__id_pr__3C69FB99">
+    <End Role="ProductTable" Type="Self.ProductTable" Multiplicity="0..1" />
+    <End Role="OrderTable" Type="Self.OrderTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTable">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="OrderTable">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductTa__id_su__36B12243">
+    <End Role="SupplierTable" Type="Self.SupplierTable" Multiplicity="0..1" />
+    <End Role="ProductTable" Type="Self.ProductTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupplierTable">
+        <PropertyRef Name="id_supplier" />
+      </Principal>
+      <Dependent Role="ProductTable">
+        <PropertyRef Name="id_supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductTa__id_ty__34C8D9D1">
+    <End Role="TypeProductTable" Type="Self.TypeProductTable" Multiplicity="0..1" />
+    <End Role="ProductTable" Type="Self.ProductTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeProductTable">
+        <PropertyRef Name="id_type_product" />
+      </Principal>
+      <Dependent Role="ProductTable">
+        <PropertyRef Name="id_type_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductTa__id_wa__35BCFE0A">
+    <End Role="WarehouseTable" Type="Self.WarehouseTable" Multiplicity="0..1" />
+    <End Role="ProductTable" Type="Self.ProductTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WarehouseTable">
+        <PropertyRef Name="id_warehouse" />
+      </Principal>
+      <Dependent Role="ProductTable">
+        <PropertyRef Name="id_warehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище BDModelContainer">
+    <EntitySet Name="ClientTable" EntityType="Self.ClientTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderTable" EntityType="Self.OrderTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PointTable" EntityType="Self.PointTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductPaymentStatusTable" EntityType="Self.ProductPaymentStatusTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductStatusTable" EntityType="Self.ProductStatusTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTable" EntityType="Self.ProductTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplierTable" EntityType="Self.SupplierTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeProductTable" EntityType="Self.TypeProductTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WarehouseTable" EntityType="Self.WarehouseTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__OrderTabl__id_cl__3A81B327" Association="Self.FK__OrderTabl__id_cl__3A81B327">
+      <End Role="ClientTable" EntitySet="ClientTable" />
+      <End Role="OrderTable" EntitySet="OrderTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderTabl__id_po__3D5E1FD2" Association="Self.FK__OrderTabl__id_po__3D5E1FD2">
+      <End Role="PointTable" EntitySet="PointTable" />
+      <End Role="OrderTable" EntitySet="OrderTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderTabl__id_pr__398D8EEE" Association="Self.FK__OrderTabl__id_pr__398D8EEE">
+      <End Role="ProductPaymentStatusTable" EntitySet="ProductPaymentStatusTable" />
+      <End Role="OrderTable" EntitySet="OrderTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderTabl__id_pr__3B75D760" Association="Self.FK__OrderTabl__id_pr__3B75D760">
+      <End Role="ProductStatusTable" EntitySet="ProductStatusTable" />
+      <End Role="OrderTable" EntitySet="OrderTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderTabl__id_pr__3C69FB99" Association="Self.FK__OrderTabl__id_pr__3C69FB99">
+      <End Role="ProductTable" EntitySet="ProductTable" />
+      <End Role="OrderTable" EntitySet="OrderTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductTa__id_su__36B12243" Association="Self.FK__ProductTa__id_su__36B12243">
+      <End Role="SupplierTable" EntitySet="SupplierTable" />
+      <End Role="ProductTable" EntitySet="ProductTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductTa__id_ty__34C8D9D1" Association="Self.FK__ProductTa__id_ty__34C8D9D1">
+      <End Role="TypeProductTable" EntitySet="TypeProductTable" />
+      <End Role="ProductTable" EntitySet="ProductTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductTa__id_wa__35BCFE0A" Association="Self.FK__ProductTa__id_wa__35BCFE0A">
+      <End Role="WarehouseTable" EntitySet="WarehouseTable" />
+      <End Role="ProductTable" EntitySet="ProductTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

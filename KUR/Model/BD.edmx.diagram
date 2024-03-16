@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e48a5e9305949479d33667a20f9689c" Name="Diagram1">
+        <EntityTypeShape EntityType="BDModel.ClientTable" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.OrderTable" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.PointTable" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.ProductPaymentStatusTable" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.ProductStatusTable" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.ProductTable" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.SupplierTable" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.TypeProductTable" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.WarehouseTable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BDModel.FK__OrderTabl__id_cl__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK__OrderTabl__id_po__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK__OrderTabl__id_pr__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK__OrderTabl__id_pr__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK__OrderTabl__id_pr__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK__ProductTa__id_su__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK__ProductTa__id_ty__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK__ProductTa__id_wa__35BCFE0A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

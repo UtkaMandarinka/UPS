@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище BDModelContainer" CdmEntityContainer="BDEntities">
+    <EntitySetMapping Name="ClientTable">
+      <EntityTypeMapping TypeName="BDModel.ClientTable">
+        <MappingFragment StoreEntitySet="ClientTable">
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="name_client" ColumnName="name_client" />
+          <ScalarProperty Name="surname_client" ColumnName="surname_client" />
+          <ScalarProperty Name="telephone_client" ColumnName="telephone_client" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderTable">
+      <EntityTypeMapping TypeName="BDModel.OrderTable">
+        <MappingFragment StoreEntitySet="OrderTable">
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="id_product_payment_status" ColumnName="id_product_payment_status" />
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="id_product_status" ColumnName="id_product_status" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_point" ColumnName="id_point" />
+          <ScalarProperty Name="product_units" ColumnName="product_units" />
+          <ScalarProperty Name="delivery_date" ColumnName="delivery_date" />
+          <ScalarProperty Name="shelf_life" ColumnName="shelf_life" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointTable">
+      <EntityTypeMapping TypeName="BDModel.PointTable">
+        <MappingFragment StoreEntitySet="PointTable">
+          <ScalarProperty Name="id_point" ColumnName="id_point" />
+          <ScalarProperty Name="address_point" ColumnName="address_point" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPaymentStatusTable">
+      <EntityTypeMapping TypeName="BDModel.ProductPaymentStatusTable">
+        <MappingFragment StoreEntitySet="ProductPaymentStatusTable">
+          <ScalarProperty Name="id_product_payment_status" ColumnName="id_product_payment_status" />
+          <ScalarProperty Name="name_product_payment_status" ColumnName="name_product_payment_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductStatusTable">
+      <EntityTypeMapping TypeName="BDModel.ProductStatusTable">
+        <MappingFragment StoreEntitySet="ProductStatusTable">
+          <ScalarProperty Name="id_product_status" ColumnName="id_product_status" />
+          <ScalarProperty Name="name_product_status" ColumnName="name_product_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTable">
+      <EntityTypeMapping TypeName="BDModel.ProductTable">
+        <MappingFragment StoreEntitySet="ProductTable">
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_type_product" ColumnName="id_type_product" />
+          <ScalarProperty Name="id_warehouse" ColumnName="id_warehouse" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="name_product" ColumnName="name_product" />
+          <ScalarProperty Name="price_product" ColumnName="price_product" />
+          <ScalarProperty Name="weight_product" ColumnName="weight_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierTable">
+      <EntityTypeMapping TypeName="BDModel.SupplierTable">
+        <MappingFragment StoreEntitySet="SupplierTable">
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="name_supplier" ColumnName="name_supplier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BDModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeProductTable">
+      <EntityTypeMapping TypeName="BDModel.TypeProductTable">
+        <MappingFragment StoreEntitySet="TypeProductTable">
+          <ScalarProperty Name="id_type_product" ColumnName="id_type_product" />
+          <ScalarProperty Name="name_type_product" ColumnName="name_type_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseTable">
+      <EntityTypeMapping TypeName="BDModel.WarehouseTable">
+        <MappingFragment StoreEntitySet="WarehouseTable">
+          <ScalarProperty Name="id_warehouse" ColumnName="id_warehouse" />
+          <ScalarProperty Name="name_warehouse" ColumnName="name_warehouse" />
+          <ScalarProperty Name="address_warehouse" ColumnName="address_warehouse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
